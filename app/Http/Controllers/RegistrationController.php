@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Mail\Welcome;
+
 class RegistrationController extends Controller
 {
     public function create(){
@@ -19,6 +21,7 @@ class RegistrationController extends Controller
             'email' => request('email'),
             'password' => bcrypt(request('password'))
             ]);
+        \Mail::to($user)->send(new Welcome($user));
         auth()->login($user);
         return redirect()->home();
     }
