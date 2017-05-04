@@ -23,6 +23,7 @@ class RegistrationController extends Controller
             ]);
         \Mail::to($user)->send(new Welcome($user));
         auth()->login($user);
+        session()->flash('message', 'Thank you for registering!');
         return redirect()->home();
     }
 }
