@@ -26,8 +26,8 @@ class PostsController extends Controller
 
     public function store(){
         $this->validate(request(), [
-            'title' => 'required',
-            'body' => 'required',
+            'title' => 'required|max:255',
+            'body' => 'nullable|min:3|max:1000',
             'user_id' => 'requested' ]);
         auth()->user()->publish(
             new Post(request(['title', 'body']))

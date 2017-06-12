@@ -5,6 +5,7 @@
           <a class="nav-link" href="/login">Log In</a>
           <a class="nav-link" href="/logout">Log Out</a>
           <a class="nav-link" href="/posts/create">Write a Post</a>
+          <a class="nav-link" href="/register">Create an account</a>
 
         @if(Auth::check())
             <a class="nav-link ml-auto" href="#">{{ Auth::user()->name }}</a>
